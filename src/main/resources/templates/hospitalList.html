@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Lista de Hospitales</title>
+</head>
+<body>
+<main>
+    <div class="container px-4 py-5">
+        <h1 class="pb-2 border-bottom">Lista de Hospitales</h1>
+
+
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>direccion</th>
+                <th>telefono</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="emp, iterStat : ${listaHospitales}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${emp.nombre}"></td>
+                <td th:text="${emp.direccion}"></td>
+                <td th:text="${emp.telefono}"></td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" th:href="@{/hospital/listarDoctoresPorHospital(id=${emp.id})}">“Mostrar doctores</a>
+                    <a class="btn btn-primary btn-sm" th:href="@{/hospital/listarpacientesPorHospital(id=${emp.id})}">“Mostrar Pacientes</a>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
