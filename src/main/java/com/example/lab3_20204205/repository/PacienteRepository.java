@@ -19,5 +19,7 @@ public interface PacienteRepository extends JpaRepository<Paciente, Integer> {
     @Query("UPDATE Paciente p SET p.doctor.id = :destinoId WHERE p.doctor.id = :origenId")
     void actualizarDoctorDePacientes(@Param("origenId") int origenId, @Param("destinoId") int destinoId);
 
+    List<Paciente> findByDoctor_IdAndAtendidoFalse(int idDoctor);
+
 
 }

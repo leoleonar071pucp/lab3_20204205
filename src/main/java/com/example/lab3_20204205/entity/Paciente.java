@@ -17,7 +17,7 @@ public class Paciente {
     private int edad;
     private String genero;
     private String diagnostico;
-
+    private boolean atendido;
     @Column(name = "fecha_cita")
     private LocalDate fechaCita; // Asegúrate de usar LocalDate para almacenar solo la fecha
 
